@@ -1,4 +1,13 @@
 // See: https://sass-lang.com/
+// base scss
+$font-cards: 'Comfortaa', cursive;
+$card-header-colour: rgb(66, 68, 72);
+$card-text-colour: rgb(77, 80, 86);
+$card-header-background: rgb(125 182 218 / 48%);
+$card-body-background: rgb(125 182 218 / 48%);
+$card-border: 1px solid rgb(77, 80, 86);
+
+
 
 body,
 html {
@@ -6,5 +15,22 @@ html {
 }
 
 .card {
-  font-family: 'Comfortaa', cursive;
+  font: 100% $font-cards;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 25%;
+  border: $card-border;
+}
+
+.card-header {
+  color: $card-header-colour;
+  background-color: $card-header-background;
+}
+
+.card-text {
+  color: $card-text-colour;
+}
+
+.card-body {
+  background: $card-body-background;
 }
