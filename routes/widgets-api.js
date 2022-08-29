@@ -9,6 +9,8 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 
+router.use(express.urlencoded({ extended: true }));
+
 router.get('/', (req, res) => {
   const query = `SELECT * FROM widgets`;
   console.log(query);
@@ -22,11 +24,6 @@ router.get('/', (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-});
-
-router.get('/create', (req, res) => {
-
-  res.render("make-quiz");
 });
 
 module.exports = router;
