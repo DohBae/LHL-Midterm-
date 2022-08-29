@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
+const { addQuiz } = require('../db/queries/create');
 
 router.get('/', (req, res) => {
   res.render("make-quiz");
@@ -22,7 +23,7 @@ router.post('/new', (req, res) => {
   const answer3 = req.body['Answer-3'];
   const answer4 = req.body['Answer-4'];
 
-  addQuiz(creator_id, listed, quizTitle, quizDescription, thumbnail_url)
+  addQuiz(1, listed, quizTitle, quizDescription, imageURL);
 
   // return query like in light-bnb
 
