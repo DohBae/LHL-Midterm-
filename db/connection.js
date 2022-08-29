@@ -10,7 +10,7 @@ const dbParams = {
 };
 
 const db = new Pool(dbParams);
-console.log(db);
+
 db.connect();
 
 module.exports = db;
