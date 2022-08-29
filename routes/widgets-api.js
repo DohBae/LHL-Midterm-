@@ -24,4 +24,9 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/create', (req, res) => {
+
+  res.render("make-quiz");
+});
+
 module.exports = router;
