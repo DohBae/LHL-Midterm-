@@ -30,14 +30,14 @@ const addQuestion = (quiz_id, content) => {
   });
 };
 
-const addAnswer = (question_id, content, correct) => {
+const addAnswer = (quiz_id, question_id, content, correct) => {
   return db
   .query(`
-  INSERT INTO answer (question_id, content, correct)
-  VALUES ($1, $2, $3);
-    `, [question_id, content, correct])
+  INSERT INTO answer (quiz_id, question_id, content, correct)
+  VALUES ($1, $2, $3, $4);
+    `, [quiz_id, question_id, content, correct])
   .then((result) => {
-    console.log('Adding new question!');
+    console.log('Adding new answer!');
     return result.rows[0];
   })
   .catch((err) => {
