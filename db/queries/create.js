@@ -1,11 +1,11 @@
 const db = require('../connection');
 
-const addQuiz = (creator_id, listed, title, description, thumbnail_url) => {
+const addQuiz = (id, creator_id, listed, title, description, thumbnail_url) => {
   return db
   .query(`
-  INSERT INTO quiz (creator_id, listed, title, description, thumbnail_url)
-  VALUES ($1, $2, $3, $4, $5);
-    `, [creator_id, listed, title, description, thumbnail_url])
+  INSERT INTO quiz (id, creator_id, listed, title, description, thumbnail_url)
+  VALUES ($1, $2, $3, $4, $5, $6);
+    `, [id, creator_id, listed, title, description, thumbnail_url])
   .then((result) => {
     console.log('Adding new quiz!');
     return result.rows[0];

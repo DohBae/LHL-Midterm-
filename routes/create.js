@@ -16,14 +16,15 @@ router.post('/new', (req, res) => {
   }
 // add quiz to db
   const quiz_id = generateRandomNumber();
+  const creator_id = 1;
   const quizTitle = req.body.title;
   const quizDescription = req.body.description;
   const imageURL = req.body['img-url'];
-  addQuiz(quiz_id, listed, quizTitle, quizDescription, imageURL);
+  addQuiz(quiz_id, creator_id, listed, quizTitle, quizDescription, imageURL);
 
 // add question to db
-  // const questionText = req.body['question-text'];
-  // addQuestion(1, questionText);
+  const questionText = req.body['question-text'];
+  addQuestion(1, questionText);
 
   // const answer1 = req.body['Answer-1'];
   // const answer1value = req.body['answer-1-val'];
