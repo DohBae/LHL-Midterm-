@@ -12,9 +12,7 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
   <!-- Internal CSS -->
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/create.css" />
+  <link rel="stylesheet" href="/styles/results.css" />
 
   <!-- External Javascript -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -31,30 +29,21 @@
   <!-- Internal Javascript -->
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <title>Create a Quiz</title>
+  <title>Your Results!</title>
 </head>
 
 <body>
-
-  <main class="create-quiz" style="margin: 1em;">
-    <h3>Create a Quiz!</h3>
-    <form action="/create/new" method="POST">
-      <label for="title">TITLE:</label>
-      <input type="title" name="title" style="width: 25rem; margin-bottom: 10px;"> </input>
-      <select name="public-private">
-        <option value="Public">Public</option>
-        <option value="Private">Private (Unlisted)</option>
-      </select>
-      <br>
-      <label for="description">DESCRIPTION:</label> <br>
-      <textarea type="description" name="description" style="width: 37.5rem; margin-bottom: 10px;"></textarea> <br>
-      <label for="img-url">IMAGE URL:</label>
-      <input type="img-url" name="img-url" style="width: 25rem; margin-bottom: 10px;"> </input> <br>
-
-      <button type="submit" class="btn btn-dark" id="form-submit-btn">Submit</button>
-    </form>
-    <button class="btn btn-light" id="add-question-btn">Add Question</button>
-  </main>
+  <div id="main_content" role="main">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-title">Your Results!</h1>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Your score: * / *</p>
+        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
+        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
+      </div>
+    </div>
 
 </body>
 
