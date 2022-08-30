@@ -2,8 +2,9 @@ $font: 'Comfortaa', cursive;
 $border: 1px solid rgb(77, 80, 86);
 $border-radius: 5px;
 $border-radius-q: 3px;
-$box-background: rgba(224, 47, 44, 0.48);
+$box-background: rgba(148, 168, 239, 0.48);
 $text-colour: rgb(51, 52, 55);
+$button: rgba(227, 203, 21, 0.854);
 
 
 body {
@@ -13,7 +14,7 @@ body {
   align-items: center;
   // width: 100%;
   min-height: 100vh;
-background-color: #cf8c10;
+background-color: #126427c6;
 background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
 }
 
@@ -41,7 +42,6 @@ form {
   border-radius: $border-radius;
   background: $box-background;
   padding: 2%;
-  margin-top: 5px;
 }
 
 .question {
@@ -58,5 +58,25 @@ form {
 
 .radio {
 display: inline-block;
-// align-content: flex-start;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  background: $button;
+  margin-top: 50px;
+}
+
+.button:hover {
+  box-shadow: 0 0 11px rgb(66, 68, 72);
+  cursor: pointer;
+}
+
+.fa-regular {
+  margin-left: 5px;
+}
+
+.buttonHolder {
+  display: flex;
+  justify-content: center;
 }
