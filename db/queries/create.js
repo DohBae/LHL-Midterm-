@@ -9,7 +9,6 @@ const addQuiz = (id, creator_id, listed, title, description, thumbnail_url) => {
     `, [id, creator_id, listed, title, description, thumbnail_url])
   .then((result) => {
     console.log('Adding new quiz!');
-    console.log('ADD QUIZ', result.rows)
     return result.rows[0];
   })
   .catch((err) => {
