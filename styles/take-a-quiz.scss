@@ -3,6 +3,7 @@ $border: 1px solid rgb(77, 80, 86);
 $border-radius: 5px;
 $border-radius-q: 3px;
 $box-background: rgba(224, 47, 44, 0.48);
+$text-colour: rgb(51, 52, 55);
 
 
 body {
@@ -17,8 +18,11 @@ background-image: url("https://www.transparenttextures.com/patterns/vintage-spec
 }
 
 form {
-  font: $font;
+  font: 100% $font;
   width: 90%;
+  color: $text-colour;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .header {
@@ -27,6 +31,7 @@ form {
   border: $border;
   border-radius: $border-radius;
   background: $box-background;
+  padding: 5%;
 }
 
 .description {
@@ -35,6 +40,8 @@ form {
   border: $border;
   border-radius: $border-radius;
   background: $box-background;
+  padding: 2%;
+  margin-top: 5px;
 }
 
 .question {
