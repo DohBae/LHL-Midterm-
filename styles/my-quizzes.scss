@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width: 100%;
+  min-height: 100vh;
+background-color: #936bbb;
+background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+}
+
+body,
+html {
+  margin: 0;
+}
+
+$font-cards: 'Comfortaa', cursive;
+$card-header-colour: rgb(66, 68, 72);
+$card-text-colour: rgb(77, 80, 86);
+$card-header-background: rgba(195, 72, 217, 0.48);
+$card-body-background: rgba(195, 72, 217, 0.48);
+$card-border: 1px solid rgb(77, 80, 86);
+$button-colour: rgb(185, 68, 87);
+
+
+
+
+.card {
+  font: 100% $font-cards;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 25%;
+  border: $card-border;
+  // justify-content: flex-start;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgb(66, 68, 72);
+  cursor: pointer;
+}
+
+.card-header {
+  color: $card-header-colour;
+  background-color: $card-header-background;
+}
+
+.card-text {
+  color: $card-text-colour;
+  border-radius: 10px;
+  border: $card-border;
+  padding: 1%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card-body {
+  background: $card-body-background;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-img {
+  width: 30%;
+  border-radius: 10px;
+}
+
+.btn {
+  width: auto;
+  height: fit-content;
+  font: 100% $font-cards;
+  color:$button-colour;
+  border-color: $button-colour;
+}
+
+.btn:hover {
+  background-color: $button-colour;
+  border: $button-colour;
+}
+
+.btn-primary {
+  background-color: $button-colour;
+  color: white;
+}
+
+
+.createNewQuiz {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}

@@ -50,10 +50,6 @@ router.post('/new', (req, res) => {
 
       for (let q = 0; q < questionIDArray.length; q++) {
         for (let i = startValue; i <= endValue; i++) {
-          console.log(questionIDArray[q]);
-          console.log(i);
-          console.log(answers[i]);
-          console.log(correctValues[i]);
 
           let correct = false;
           if (correctValues[i] === 'Correct') {
