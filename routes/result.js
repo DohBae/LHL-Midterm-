@@ -23,8 +23,4 @@ router.get('/:id/', (req, res) => {
 
 });
 
-router.get('/', (req, res) => {
-  res.render('attempt');
-})
-
 module.exports = router;
