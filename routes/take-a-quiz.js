@@ -4,6 +4,7 @@ const db = require('../db/connection');
 
 
 router.get('/', (req, res) => {
+  console.log("it works");
   res.render('take-a-quiz');
 });
 
