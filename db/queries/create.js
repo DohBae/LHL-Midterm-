@@ -4,10 +4,12 @@ const addQuiz = (id, creator_id, listed, title, description, thumbnail_url) => {
   return db
   .query(`
   INSERT INTO quiz (id, creator_id, listed, title, description, thumbnail_url)
-  VALUES ($1, $2, $3, $4, $5, $6);
+  VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *;
     `, [id, creator_id, listed, title, description, thumbnail_url])
   .then((result) => {
     console.log('Adding new quiz!');
+    console.log('ADD QUIZ', result.rows)
     return result.rows[0];
   })
   .catch((err) => {
@@ -19,7 +21,8 @@ const addQuestion = (quiz_id, content) => {
   return db
   .query(`
   INSERT INTO question (quiz_id, content)
-  VALUES ($1, $2);
+  VALUES ($1, $2)
+  RETURNING *;
     `, [quiz_id, content])
   .then((result) => {
     console.log('Adding new question!');
@@ -43,7 +46,7 @@ const getQuestionIDByContent = (content) => {
   .catch((err) => {
     console.log(err.message);
   });
-};
+}; //add quiz id
 
 const addAnswer = (quiz_id, question_id, content, correct) => {
   return db

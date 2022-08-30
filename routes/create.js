@@ -23,6 +23,7 @@ router.post('/new', (req, res) => {
   // question variables
   const questions = req.body['question-text'];
 
+
   // answer variables
   const answers = req.body['answer'];
   const correctValues = req.body['answer-val'];
@@ -30,21 +31,41 @@ router.post('/new', (req, res) => {
 // because these functions return promises (found in db/queries/create), they have to be run async
   addQuiz(quiz_id, creator_id, listed, quizTitle, quizDescription, imageURL)
     .then(() => {
+      const questionArray = [];
+
       for (const question of questions) {
-        addQuestion(quiz_id, question);
+        questionArray.push(addQuestion(quiz_id, question));
       }
-      return questions;
+
+      return Promise.all(questionArray);
     })
-    .then(() => {
-
-      let correct = false;
-
-      for (let i = 0; i < answers.length; i++) {
-        if (correctValues[i] === "Correct") {
-          correct = true;
-        }
-        addAnswer(quiz_id, ?????, answers[i], correct);
+    .then((ids) => {
+      const questionIDArray = [];
+      for (const each of ids) {
+        questionIDArray.push(each.id);
       }
+
+      let startValue = 0;
+      let endValue = 3;
+
+      for (let q = 0; q < questionIDArray.length; q++) {
+        for (let i = startValue; i <= endValue; i++) {
+          console.log(questionIDArray[q]);
+          console.log(i);
+          console.log(answers[i]);
+          console.log(correctValues[i]);
+
+          let correct = false;
+          if (correctValues[i] === 'Correct') {
+            correct = true;
+          }
+
+          addAnswer(quiz_id, questionIDArray[q], answers[i], correct);
+        }
+        startValue = startValue + 4;
+        endValue = endValue + 4;
+      }
+
 
     });
 
