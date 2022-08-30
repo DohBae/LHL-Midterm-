@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS question CASCADE;
 CREATE TABLE question (
   id SERIAL PRIMARY KEY NOT NULL,
-  quiz_id INTEGER REFERENCES quiz(id),
+  quiz_id BIGINT REFERENCES quiz(id),
   content TEXT
 );
 
