@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
-const { addQuiz, addQuestion, addAnswer, getQuestionIDByContent } = require('../db/queries/create');
+const { addQuiz, addQuestion, addAnswer } = require('../db/queries/create');
 const { generateRandomNumber } = require('./helperFunctions');
 
 router.get('/', (req, res) => {

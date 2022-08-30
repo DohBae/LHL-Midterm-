@@ -1,6 +1,5 @@
 // Client facing scripts here
 
-
 $(document).ready(function () {
   let questionSection = `
   <section class="question-creation">
