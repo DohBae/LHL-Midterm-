@@ -5,5 +5,5 @@ CREATE TABLE quiz (
   title TEXT,
   listed BOOLEAN,
   description TEXT,
-  thumbnail_url TEXT
+  thumbnail_url TEXT DEFAULT 'https://blog.hubspot.com/hubfs/google-quiz.jpg'
 );
