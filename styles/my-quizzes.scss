@@ -5,29 +5,25 @@ body {
   align-items: center;
   // width: 100%;
   min-height: 100vh;
-background-color: #87aaad;
+background-color: #936bbb;
 background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
 }
-
-// See: https://sass-lang.com/
-
-/********************************************************************
-HOMEPAGE CSS
-********************************************************************/
-// base scss
-$font-cards: 'Comfortaa', cursive;
-$card-header-colour: rgb(66, 68, 72);
-$card-text-colour: rgb(77, 80, 86);
-$card-header-background: rgb(125 182 218 / 48%);
-$card-body-background: rgb(125 182 218 / 48%);
-$card-border: 1px solid rgb(77, 80, 86);
-
-
 
 body,
 html {
   margin: 0;
 }
+
+$font-cards: 'Comfortaa', cursive;
+$card-header-colour: rgb(66, 68, 72);
+$card-text-colour: rgb(77, 80, 86);
+$card-header-background: rgba(195, 72, 217, 0.48);
+$card-body-background: rgba(195, 72, 217, 0.48);
+$card-border: 1px solid rgb(77, 80, 86);
+$button-colour: rgb(185, 68, 87);
+
+
+
 
 .card {
   font: 100% $font-cards;
@@ -72,6 +68,19 @@ html {
 .btn {
   width: auto;
   height: fit-content;
+  font: 100% $font-cards;
+  color:$button-colour;
+  border-color: $button-colour;
+}
+
+.btn:hover {
+  background-color: $button-colour;
+  border: $button-colour;
+}
+
+.btn-primary {
+  background-color: $button-colour;
+  color: white;
 }
 
 
