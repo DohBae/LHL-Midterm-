@@ -27,6 +27,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- Internal Javascript -->
+  <script src="/scripts/app.js"></script>
 
   <title>Your Results!</title>
 </head>
@@ -35,13 +36,18 @@
   <div id="main_content" role="main">
     <div class="card">
       <div class="card-header">
-        <h1 class="card-title">Your Results!</h1>
+        <h1 class="card-title">
+          <%= username %>'s Results!
+        </h1>
       </div>
       <div class="card-body">
+        <h3>
+          <%= quiz_title %>
+        </h3>
         <p class="card-text">Your score: <%= correct_responses %> / <%= total_responses %>
         </p>
-        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Result</a>
-        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
+        <button class="btn btn-primary" id="share-result-btn"><i class="fa-solid fa-share"></i>Share Result</button>
+        <button class="btn btn-primary" id="share-quiz-btn"><i class="fa-solid fa-share"></i>Share Quiz</button>
       </div>
     </div>
 

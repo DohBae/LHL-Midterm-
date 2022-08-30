@@ -9,14 +9,15 @@ router.get('/:id/', (req, res) => {
   let templateVars = {};
   getAttemptById(id)
     .then((val) => {
-      // console.log('get attempt by id: ', val);
+      console.log('get attempt by id: ', val);
       templateVars = {
         correct_responses: val.correct_responses,
-        total_responses: val.total_responses
+        total_responses: val.total_responses,
+        quiz_title: val.title,
+        username: val.username
       }
     })
       .then(() => {
-        console.log("This is template vars: ", templateVars);
         res.render('attempt', templateVars);
       })
 
