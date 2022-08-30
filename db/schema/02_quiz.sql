@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS quiz CASCADE;
 CREATE TABLE quiz (
-  id BIGINT PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
   creator_id INTEGER REFERENCES users(id),
   title TEXT,
   listed BOOLEAN,
