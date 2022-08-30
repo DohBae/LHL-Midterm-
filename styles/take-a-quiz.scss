@@ -1,0 +1,51 @@
+$font: 'Comfortaa', cursive;
+$border: 1px solid rgb(77, 80, 86);
+$border-radius: 5px;
+$border-radius-q: 3px;
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  // width: 100%;
+  min-height: 100vh;
+background-color: #87aaad;
+background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+}
+
+form {
+  font: $font;
+  width: 90%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  border: $border;
+  border-radius: $border-radius-q;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+}
+
+.radio {
+display: inline-block;
+// align-content: flex-start;
+}
