@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const { addQuiz, addQuestion } = require('../db/queries/create');
+const { generateRandomNumber } = require('./helperFunctions');
 
 router.get('/', (req, res) => {
   res.render("make-quiz");
@@ -14,6 +15,7 @@ router.post('/new', (req, res) => {
     listed = false;
   }
 
+  const quiz_id = generateRandomNumber();
   const quizTitle = req.body.title;
   const quizDescription = req.body.description;
   const imageURL = req.body['img-url'];
@@ -27,7 +29,7 @@ router.post('/new', (req, res) => {
 
   // I think the quiz_id needs to be generated randomly at time of creation.
 
-  addQuiz(1, listed, quizTitle, quizDescription, imageURL);
+  addQuiz(quiz_id, listed, quizTitle, quizDescription, imageURL);
   addQuestion(1, questionText);
 
   for (const ans of answers) {
