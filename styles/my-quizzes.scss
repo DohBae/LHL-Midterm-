@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width: 100%;
+  min-height: 100vh;
+background-color: #87aaad;
+background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+}
+
+// See: https://sass-lang.com/
+
+/********************************************************************
+HOMEPAGE CSS
+********************************************************************/
+// base scss
+$font-cards: 'Comfortaa', cursive;
+$card-header-colour: rgb(66, 68, 72);
+$card-text-colour: rgb(77, 80, 86);
+$card-header-background: rgb(125 182 218 / 48%);
+$card-body-background: rgb(125 182 218 / 48%);
+$card-border: 1px solid rgb(77, 80, 86);
+
+
+
+body,
+html {
+  margin: 0;
+}
+
+.card {
+  font: 100% $font-cards;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 25%;
+  border: $card-border;
+  // justify-content: flex-start;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgb(66, 68, 72);
+  cursor: pointer;
+}
+
+.card-header {
+  color: $card-header-colour;
+  background-color: $card-header-background;
+}
+
+.card-text {
+  color: $card-text-colour;
+  border-radius: 10px;
+  border: $card-border;
+  padding: 1%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card-body {
+  background: $card-body-background;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-img {
+  width: 30%;
+  border-radius: 10px;
+}
+
+.btn {
+  width: auto;
+  height: fit-content;
+}
+
+
+.createNewQuiz {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
