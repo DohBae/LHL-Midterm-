@@ -14,19 +14,18 @@ header {
   position: fixed;
   z-index: 999;
   width: 100%;
-  top:0;
+  top: 0;
 }
 
-.nav-toggle{
+.nav-toggle {
   display: none;
 }
 
-.nav-toggle-label{
+.nav-toggle-label {
   position: absolute;
   top: 0;
   right: 10px;
   margin-left: 1em;
-  border: 1px solid red;
   height: 100%;
   display: flex;
   align-items: center;
@@ -35,12 +34,12 @@ header {
 .nav-toggle-label span,
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
-display: block;
-background: white;
-height: 2px;
-width: 2em;
-border-radius: 2px;
-position: relative;
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
 }
 
 .nav-toggle-label span::before,
@@ -49,7 +48,7 @@ position: relative;
   position: absolute;
 }
 
-.nav-toggle-label span::before,{
+.nav-toggle-label span::before {
   bottom: 7px;
 }
 
@@ -64,7 +63,9 @@ nav {
   left: 0;
   background: var(--background);
   width: 100%;
-  display: none;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
 }
 
 nav ul {
@@ -83,12 +84,27 @@ nav a {
   text-decoration: none;
   font-size: 1.2rem;
   text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
 }
 
 nav a:hover {
   color: black;
 }
 
-.nav-toggle:checked ~ nav {
-  display: block;
+.nav-toggle:checked~nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked~nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen (min-width: 800px; ) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+
 }
