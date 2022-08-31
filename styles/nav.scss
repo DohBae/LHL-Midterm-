@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.logo{
+.logo {
   grid-column: 1 / span 1;
   width: 5rem;
 }
@@ -121,7 +121,7 @@ nav a:hover {
     grid-column: 2 / span 1;
   }
 
-  .logo{
+  .logo {
     grid-column: 1 / span 1;
     width: 5rem;
   }
@@ -162,6 +162,6 @@ nav a:hover {
   }
 
   nav a:hover::before {
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
 }
