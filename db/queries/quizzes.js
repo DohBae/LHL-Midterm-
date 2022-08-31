@@ -14,4 +14,12 @@ const getAllPublicQuizzes = () => {
     });
 };
 
-module.exports = { getAllQuizzes, getAllPublicQuizzes };
+const getQuizInfo = (id) => {
+  return db.query(`SELECT * FROM quiz
+  WHERE quiz.id = $1;`, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+module.exports = { getAllQuizzes, getAllPublicQuizzes, getQuizInfo };

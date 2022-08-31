@@ -56,6 +56,7 @@ app.use('/register', registerRoutes);
 const { getAllPublicQuizzes } = require('./db/queries/quizzes');
 
 app.get('/', (req, res) => {
+
   getAllPublicQuizzes()
     .then((quizzes) => {
       let templateVars = { quizDatabase: quizzes }
