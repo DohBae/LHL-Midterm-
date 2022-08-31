@@ -32,7 +32,7 @@
   <header>
     <%- include('partials/header') %>
   </header>
-  <form>
+  <form action="/take-a-quiz/<%= id %>/" method="POST">
     <h3 class="header">
       <%= title %>
     </h3>
@@ -47,8 +47,9 @@
         <% for (let answer of answers) { %>
           <% if (answer.question_id===question.id) { %>
             <div class="radio">
-              <input type="radio" class="answer" name="answer1" value="answers" />
-              <label for="answer1">
+              <input type="radio" class="answer" name="answer_<%= answer.question_id %>"
+                value="<%= answer.correct %>" />
+              <label for="<%= answer.content %>">
                 <%= answer.content %>
               </label><br>
             </div>
