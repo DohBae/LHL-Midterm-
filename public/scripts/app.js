@@ -1,4 +1,6 @@
+
 // Client facing scripts here
+const parseCookie = str =>   str   .split(';')   .map(v => v.split('='))   .reduce((acc, v) => {     acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());     return acc;   }, {});
 
 $(document).ready(function () {
   let questionSection = `
@@ -45,7 +47,13 @@ $(document).ready(function () {
     inputc.select();
     document.execCommand('copy');
     inputc.parentNode.removeChild(inputc);
-    alert("Your results URL has been copied to your clipboard!");
+    const allCookies = parseCookie(document.cookie);
+    let quizResults = allCookies['quiz-result'];
+    console.log(allCookies);
+    quizResults = quizResults.slice(2);
+    quizResults = JSON.parse(quizResults);
+    console.log(document.cookie, quizResults);
+    alert(`correct responses: ${quizResults.correct_responses} total responses: ${quizResults.total_responses} By user: ${quizResults.user_id}`);
   });
 
   $('#share-quiz-btn').on("click", function() {
