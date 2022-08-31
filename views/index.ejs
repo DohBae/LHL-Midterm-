@@ -23,22 +23,9 @@
   <script defer src="/scripts/app.js"></script>
 
 </head>
-<!-- Nav Bar -->
-<nav>
-  <div class="nav-title">
-<img src="quiz logo" class="logo"/>
-<h1>Quiz App</h1>
-    </div> <!--class nav-title -->
-
-    <div class="nav-links">
-<a class="nav-register" href="/register">Register</a>
-<a class="nav-login" href="/login">Login</a>
-
-<a class="nav-results" href="/results">My Results</a>
-<a class="nav-quizzes" href="/quizzes">My Quizzes</a>
-<div class="animation start-register"></div>
-</div>  <!--class nav-link -->
-</nav>
+<header>
+  <%- include('partials/header') %>
+</header>
 
 <body>
   <div id="main_content" role="main">
