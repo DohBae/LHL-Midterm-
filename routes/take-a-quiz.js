@@ -1,7 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
-const { getQuizInfo } = require('../db/queries/quizzes')
+const { getQuizInfo, getQuizQuestion, getQuizAnswer } = require('../db/queries/quizzes')
+
 
 router.get('/', (req, res) => {
   res.render('take-a-quiz');
@@ -13,17 +14,26 @@ router.get('/:id/', (req, res) => {
   getQuizInfo(id)
     .then((result) => {
       let val = result[0];
-      console.log('get quz: ', val);
       templateVars = {
         title: val.title,
-        description: val.description,
-        // quiz_title: val.title,
-        // username: val.username
+        description: val.description
       }
+      getQuizQuestion(val.id)
+        .then((result) => {
+          console.log('RESULT: ', result);
+          templateVars['questions'] = result;
+
+          getQuizAnswer(result[0].quiz_id)
+            .then((result) => {
+              templateVars['answers'] = result;
+            })
+             .then(() => {
+              res.render('take-a-quiz', templateVars);
+            });
+        })
+
     })
-      .then(() => {
-        res.render('take-a-quiz', templateVars);
-      })
+
 
 });
 

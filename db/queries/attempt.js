@@ -17,4 +17,19 @@ const getAttemptById = (id) => {
   });
 };
 
-module.exports = { getAttemptById }
+const addNewAttempt = (user_id, quiz_id, correct_responses, total_responses) => {
+  return db
+  .query(`
+  INSERT INTO attempt (user_id, quiz_id, correct_responses, total_responses)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *;`, [user_id, quiz_id, correct_responses, total_responses])
+  .then((result) => {
+    console.log('Adding attempt to db');
+    return result.rows[0];
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+};
+
+module.exports = { getAttemptById, addNewAttempt }

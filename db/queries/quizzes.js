@@ -22,4 +22,21 @@ const getQuizInfo = (id) => {
     });
 };
 
-module.exports = { getAllQuizzes, getAllPublicQuizzes, getQuizInfo };
+const getQuizQuestion = (id) => {
+  return db.query(`SELECT * FROM question
+  WHERE quiz_id = $1;`, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const getQuizAnswer = (id) => {
+  return db.query(`SELECT * FROM answer
+  WHERE quiz_id = $1;`, [id])
+    .then(data => {
+      return data.rows;
+    });
+};
+
+
+module.exports = { getAllQuizzes, getAllPublicQuizzes, getQuizInfo, getQuizQuestion, getQuizAnswer };
