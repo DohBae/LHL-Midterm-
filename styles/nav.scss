@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+.logo{
+  grid-column: 1 / span 1;
+  width: 5rem;
+}
+
 header {
   background: var(--background);
   text-align: center;
@@ -114,6 +119,11 @@ nav a:hover {
 
   .nav-title {
     grid-column: 2 / span 1;
+  }
+
+  .logo{
+    grid-column: 1 / span 1;
+    width: 5rem;
   }
 
   nav {
