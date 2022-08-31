@@ -32,7 +32,10 @@ const userApiRoutes = require('./routes/users-api');
 const usersRoutes = require('./routes/users');
 const createRoutes = require('./routes/create');
 const takeQuizRoutes = require('./routes/take-a-quiz');
+const resultRoute = require('./routes/result.js');
 const myQuizzesRoutes = require('./routes/my-quizzes');
+const loginRoutes = require('./routes/login');
+const registerRoutes = require('./routes/register');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -41,14 +44,25 @@ app.use('/api/users', userApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/create', createRoutes);
 app.use('/take-a-quiz', takeQuizRoutes);
+app.use('/result', resultRoute);
 app.use('/my-quizzes', myQuizzesRoutes);
+app.use('/login', loginRoutes);
+app.use('/register', registerRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+const { getAllPublicQuizzes } = require('./db/queries/quizzes');
+
 app.get('/', (req, res) => {
-  res.render('index');
+
+  getAllPublicQuizzes()
+    .then((quizzes) => {
+      let templateVars = { quizDatabase: quizzes }
+      res.render('index', templateVars);
+    })
+
 });
 
 app.listen(PORT, () => {

@@ -12,7 +12,7 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
   <!-- Internal CSS -->
-  <link rel="stylesheet" href="/styles/results.css" />
+  <link rel="stylesheet" href="/styles/userpages.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
 
   <!-- External Javascript -->
@@ -30,7 +30,7 @@
   <!-- Internal Javascript -->
   <script src="/scripts/app.js"></script>
 
-  <title>Your Results!</title>
+  <title>Log In</title>
 </head>
 
 <body>
@@ -39,23 +39,26 @@
     <%- include('partials/header') %>
   </header>
 
-  <div id="main_content" role="main">
-    <div class="card">
-      <div class="card-header">
-        <h1 class="card-title">
-          <%= username %>'s Results!
-        </h1>
-      </div>
-      <div class="card-body">
-        <h3>
-          <%= quiz_title %>
-        </h3>
-        <p class="card-text">Your score: <%= correct_responses %> / <%= total_responses %>
-        </p>
-        <button class="btn btn-primary" id="share-result-btn"><i class="fa-solid fa-share"></i>Share Result</button>
-        <button class="btn btn-primary" id="share-quiz-btn"><i class="fa-solid fa-share"></i>Share Quiz</button>
-      </div>
-    </div>
+  <main style="margin: 1em;">
+    <h3>Sign In!</h3>
+    <h6>Already have an account? Login here with your email and password. </h6>
+    <form action="/login" method="POST">
+      <label for="login"> Your email: </label>
+      <input class="form-control" type="email" name="email" placeholder="example@example.com"
+        style="width: 200px; margin: 10px" />
+      <label for="password"> Your password: </label>
+      <input class="form-control" type="password" name="password" placeholder="your password"
+        style="width: 200px; margin: 10px" />
+      <button type="submit" class="btn btn-info" style="margin-bottom: 25px;">Login</button>
+    </form>
+
+    <h6>Don't have an account? Click below to register! </h6>
+
+    <form action="/register" method="GET">
+      <button type="submit" class="btn btn-dark">Register</button>
+    </form>
+
+  </main>
 
 </body>
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
-const { addQuiz, addQuestion, addAnswer, getQuestionIDByContent } = require('../db/queries/create');
+const { addQuiz, addQuestion, addAnswer } = require('../db/queries/create');
 const { generateRandomNumber } = require('./helperFunctions');
 
 router.get('/', (req, res) => {
@@ -17,8 +17,15 @@ router.post('/new', (req, res) => {
   const quiz_id = generateRandomNumber();
   const creator_id = 1;
   const quizTitle = req.body.title;
-  const quizDescription = req.body.description;
-  const imageURL = req.body['img-url'];
+  let quizDescription = `This quiz doesn't have a description`;
+  if (req.body.description) {
+    quizDescription = req.body.description;
+  }
+
+  let imageURL = 'https://blog.hubspot.com/hubfs/google-quiz.jpg';
+  if (req.body['img-url']) {
+    imageURL = req.body['img-url'];
+  }
 
   // question variables
   const questions = req.body['question-text'];
@@ -33,11 +40,14 @@ router.post('/new', (req, res) => {
     .then(() => {
       const questionArray = [];
 
-      for (const question of questions) {
-        questionArray.push(addQuestion(quiz_id, question));
+      if (questions.length >= 1) {
+        for (const question of questions) {
+          questionArray.push(addQuestion(quiz_id, question));
+        }
+
+        return Promise.all(questionArray);
       }
 
-      return Promise.all(questionArray);
     })
     .then((ids) => {
       const questionIDArray = [];

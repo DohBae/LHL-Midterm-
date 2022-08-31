@@ -32,21 +32,6 @@ const addQuestion = (quiz_id, content) => {
   });
 };
 
-const getQuestionIDByContent = (content) => {
-  return db
-  .query(`
-  SELECT id FROM question
-  WHERE content = $1;
-    `, [content])
-  .then((result) => {
-    console.log('Adding new question!');
-    return result.rows[0];
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-}; //add quiz id
-
 const addAnswer = (quiz_id, question_id, content, correct) => {
   return db
   .query(`
@@ -62,4 +47,4 @@ const addAnswer = (quiz_id, question_id, content, correct) => {
   });
 };
 
-module.exports = { addQuiz, addQuestion, addAnswer, getQuestionIDByContent };
+module.exports = { addQuiz, addQuestion, addAnswer };

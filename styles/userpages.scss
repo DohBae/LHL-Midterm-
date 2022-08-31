@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: pink;
+
+  .question-creation {
+    margin-top: 2rem;
+  }
+
+  #add-question-btn {
+    margin-left: 30rem;
+    color: darkorchid
+  }
+}

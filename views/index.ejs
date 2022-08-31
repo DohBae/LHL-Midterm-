@@ -17,6 +17,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
@@ -25,44 +26,30 @@
   <script defer src="/scripts/app.js"></script>
 
 </head>
+<header>
+  <%- include('partials/header') %>
+</header>
 
 <body>
   <div id="main_content" role="main">
-    <div class="card" onclick="...">
-      <div class="card-header">
-        <h5 class="card-title">Quiz 1 Title</h5>
+    <% for (let each of quizDatabase) { %>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">
+            <%= each.title %>
+          </h5>
+        </div>
+        <div class="card-body">
+          <img class="card-img" src=<%=each.thumbnail_url %>>
+          <p class="card-text">
+            Quiz description: <br>
+            <%= each.description %>
+          </p>
+          <a href="http://localhost:8080/take-a-quiz/<%=each.id %>" class="btn btn-primary"><i
+              class="fa-solid fa-share"></i>Share Quiz</a>
+        </div>
       </div>
-      <div class="card-body">
-        <img class="card-img" src="https://blog.hubspot.com/hubfs/google-quiz.jpg">
-        <p class="card-text">Quiz 1 description. I'm making this longer so that I can test out how the text box will
-          expand. It looks kinda goofy being a little box in the centre of the card. I'm hoping it looks less goofy with
-          substantial text added in it.</p>
-        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
-      </div>
-    </div>
-    <!--End of class=card-->
-    <div class="card" onclick="...">
-      <div class="card-header">
-        <h5 class="card-title">Quiz 2 Title</h5>
-      </div>
-      <div class="card-body">
-        <img class="card-img" src="https://blog.hubspot.com/hubfs/google-quiz.jpg">
-        <p class="card-text">Quiz 2 description</p>
-        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
-      </div>
-    </div>
-    <!--End of class=card-->
-    <div class="card" onclick="...">
-      <div class="card-header">
-        <h5 class="card-title">Quiz 3 Title</h5>
-      </div>
-      <div class="card-body">
-        <img class="card-img" src="https://blog.hubspot.com/hubfs/google-quiz.jpg">
-        <p class="card-text">Quiz 3 description</p>
-        <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
-      </div>
-    </div>
-    <!--End of class=card-->
+      <% } %>
   </div>
   <!--End of main content-->
 
