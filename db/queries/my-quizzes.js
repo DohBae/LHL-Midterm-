@@ -1,13 +1,19 @@
 const db = require('../connection');
 
-const addQuiz = (id, creator_id, title, description, thumbnail_url) => {
+const getQuizzes = (creator_id) => {
   return db
   .query(`
-  SELECT title, description, thumbnail_url
+  SELECT *
   FROM quiz
-  WHERE id = 4
+  WHERE creator_id = $1
+  `, [creator_id])
+  .then((result) => {
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  })
 
-  `)
 }
 
-module.exports = { };
+module.exports = { getQuizzes };
