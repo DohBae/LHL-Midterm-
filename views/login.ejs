@@ -41,32 +41,22 @@
 
   <main style="margin: 1em;">
     <h3>Sign In!</h3>
+    <h6>Already have an account? Login here with your email and password. </h6>
+    <form action="/login" method="POST">
+      <label for="login"> Your email: </label>
+      <input class="form-control" type="email" name="email" placeholder="example@example.com"
+        style="width: 200px; margin: 10px" />
+      <label for="password"> Your password: </label>
+      <input class="form-control" type="password" name="password" placeholder="your password"
+        style="width: 200px; margin: 10px" />
+      <button type="submit" class="btn btn-info" style="margin-bottom: 25px;">Login</button>
+    </form>
 
-    <% if (user) { %>
+    <h6>Don't have an account? Click below to register! </h6>
 
-      <form action="/logout" method="POST" style="margin-left: auto; margin-right: 0">
-        <label for="login"> Signed in as: <%= user.email %> </label>
-        <button type="submit" class="btn btn-outline-secondary">Logout</button>
-      </form>
-
-      <% } else { %>
-        <h6>Already have an account? Login here with your email and password. </h6>
-        <form action="/login" method="POST">
-          <label for="login"> Your email: </label>
-          <input class="form-control" type="email" name="email" placeholder="example@example.com"
-            style="width: 200px; margin: 10px" />
-          <label for="password"> Your password: </label>
-          <input class="form-control" type="password" name="password" placeholder="your password"
-            style="width: 200px; margin: 10px" />
-          <button type="submit" class="btn btn-info" style="margin-bottom: 25px;">Login</button>
-        </form>
-
-        <h6>Don't have an account? Click below to register! </h6>
-
-        <form action="/register" method="GET">
-          <button type="submit" class="btn btn-dark">Register</button>
-        </form>
-        <% } %>
+    <form action="/register" method="GET">
+      <button type="submit" class="btn btn-dark">Register</button>
+    </form>
 
   </main>
 

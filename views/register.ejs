@@ -30,7 +30,7 @@
   <!-- Internal Javascript -->
   <script src="/scripts/app.js"></script>
 
-  <title>Log In</title>
+  <title>Register an Account</title>
 </head>
 
 <body>
@@ -42,6 +42,9 @@
   <main style="margin: 1em;">
     <h3>Create an Account</h3>
     <form action="/register" method="POST">
+      <label for="username">Your name:</label>
+      <input class="form-control" type="username" name="username" placeholder="Your Name"
+        style="width: 250px; margin-bottom: 10px;" />
       <label for="email">Your email:</label>
       <input class="form-control" type="email" name="email" placeholder="example@example.com"
         style="width: 250px; margin-bottom: 10px;" />
