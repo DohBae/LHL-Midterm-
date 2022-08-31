@@ -46,6 +46,9 @@ router.post('/:id/', (req, res) => {
   addNewAttempt(user_id, quiz_id, correct_responses, total_responses)
     .then((attempt) => {
       const attemptID = attempt.id;
+
+      res.cookie('quiz-result', {correct_responses, total_responses, user_id})
+
       res.redirect(`/result/${attemptID}`);
     })
 });
