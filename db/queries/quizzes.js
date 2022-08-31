@@ -7,4 +7,11 @@ const getAllQuizzes = () => {
     });
 };
 
-module.exports = { getAllQuizzes };
+const getAllPublicQuizzes = () => {
+  return db.query('SELECT * FROM quiz WHERE listed = TRUE;')
+    .then(data => {
+      return data.rows;
+    });
+};
+
+module.exports = { getAllQuizzes, getAllPublicQuizzes };
