@@ -5,8 +5,8 @@ body {
   align-items: center;
   // width: 100%;
   min-height: 100vh;
-background-color: #936bbb;
-background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+  background-color: #936bbb;
+  background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
 }
 
 body,
@@ -21,9 +21,6 @@ $card-header-background: rgba(195, 72, 217, 0.48);
 $card-body-background: rgba(195, 72, 217, 0.48);
 $card-border: 1px solid rgb(77, 80, 86);
 $button-colour: rgb(185, 68, 87);
-
-
-
 
 .card {
   font: 100% $font-cards;
@@ -83,9 +80,9 @@ $button-colour: rgb(185, 68, 87);
   color: white;
 }
 
-
 .createNewQuiz {
   display: flex;
   justify-content: center;
+  margin-top: 4rem;
   margin-bottom: 50px;
 }
