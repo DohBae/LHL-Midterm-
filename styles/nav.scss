@@ -8,12 +8,6 @@
   box-sizing: border-box;
 }
 
-.logo {
-  grid-column: 1 / span 1;
-  width: 5rem;
-  color: black;
-}
-
 header {
   background: var(--background);
   text-align: center;
@@ -21,6 +15,11 @@ header {
   z-index: 999;
   width: 100%;
   top: 0;
+
+  .logo {
+    width: 250px;
+    margin-left: 2rem;
+  }
 }
 
 .nav-toggle {
@@ -72,17 +71,18 @@ nav {
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
-}
 
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-nav li {
-  margin-bottom: 1em;
-  margin-left: 1em;
+  li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+
 }
 
 nav a {
@@ -120,6 +120,8 @@ nav a:hover {
 
   .nav-title {
     grid-column: 2 / span 1;
+    margin-top: 2rem;
+    margin-left: 2rem;
   }
 
   .logo {
