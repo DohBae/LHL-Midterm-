@@ -69,11 +69,13 @@ router.post('/', (req, res) => {
     .then(() => {
       const questionArray = [];
 
-      for (const question of questions) {
-        questionArray.push(addQuestion(quiz_id, question));
-      }
+      if (questions.length >= 1) {
+        for (const question of questions) {
+          questionArray.push(addQuestion(quiz_id, question));
+        }
 
-      return Promise.all(questionArray);
+        return Promise.all(questionArray);
+      }
 
     })
     .then((ids) => {
