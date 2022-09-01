@@ -1,0 +1,28 @@
+$font: 'Comfortaa', cursive;;
+$background-colour: #a187bb;
+$background-img: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $background-colour;
+  background-image: $background-img;
+
+}
+#main_content {
+  font: 100% $font;
+}
+
+.question-creation {
+  margin-top: 2rem;
+}
+
+#add-question-btn {
+  margin-left: 30rem;
+  color: darkorchid
+}

@@ -42,12 +42,10 @@
           class="fa-solid fa-pen-fancy"></i></button>
         </div>
         <div class="card" onclick="location.href='http://localhost:8080/take-a-quiz/<%=quiz.id %>'">
-          <a href="http://localhost:8080/take-a-quiz/<%=quiz.id %>">
           <div class="card-header">
             <h5 class="card-title">
               <%= quiz.title %>
             </h5>
-          </a>
           </div>
             <div class="card-body">
               <img class="card-img" src=<%=quiz.thumbnail_url %>>
@@ -55,7 +53,7 @@
                 Quiz description: <br>
                 <%= quiz.description %>
               </p>
-              <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
+              <a id="share-quiz-btn" class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
             </div>
             <% } %>
           </div>

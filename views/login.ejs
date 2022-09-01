@@ -12,8 +12,8 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
   <!-- Internal CSS -->
-  <link rel="stylesheet" href="/styles/userpages.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/login.css" />
 
   <!-- External Javascript -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -39,7 +39,7 @@
     <%- include('partials/header') %>
   </header>
 
-  <main style="margin: 1em;">
+  <div id="main_content" role="main" style="margin: 1em;">
     <h3>Sign In!</h3>
     <h6>Already have an account? Login here with your email and password. </h6>
     <form action="/login" method="POST">
@@ -58,7 +58,7 @@
       <button type="submit" class="btn btn-dark">Register</button>
     </form>
 
-  </main>
+  </div>
 
 </body>
 
