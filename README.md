@@ -5,7 +5,9 @@ Does the idea of a quiz stress you out? When you hear the word "quiz" does it ma
 Welcome to F.A.A.Q. U., a browser-based app that lets you create an account, create your own multiple-choice quiz (content, number of questions, and thumbnail image totally up to you!), take quizzes made by users, and share your quiz results with your friends. Learning has never been so fun -- and so stress-free. 
 
 ## Screenshots
-- put screenshots here when we have them ready
+![Screenshot of My Quizzes page in Mobile View](https://github.com/DohBae/LHL-Midterm-/blob/error-handling/public/images/SS-my-quizzes-mobile.png?raw=true)
+![Screenshot of My Quizzes page in Desktop View](https://github.com/DohBae/LHL-Midterm-/blob/error-handling/public/images/SS-my-quizzes-desktop.png?raw=true)
+
 
 ## Dependencies
 - Body Parser
@@ -33,6 +35,9 @@ The F.A.A.Q. U. homepage features all publically-listed quizzes in the database.
 
 ### Register and Login
 Separate web pages allow users to sign up for an account. You are still able to create and take quizzes without logging in, and you can share your results from each individual quiz without an account, too. But, logged-in users gain access to additional features like personalized My Quizzes and My Results pages. Plus, they'll see their names on their results pages. 
+
+### Fancy SASS and Responsive Nav Design
+This app makes effective use of SASS for css and design, and is quite responsive to various screen sizes.
 
 ### Create a Quiz
 The make-quiz page lets the client create and customize a quiz. Clients can add a quiz title, description, and a thumbnail image URL of their choice. Then, the client can add as many multiple choice questions as they'd like, indicating which of the answers are correct. Clients can also choose to make their quiz public--which means it will be listed on the homepage--or private--which means it can only be shared by copying the link to one's clipboard. 
