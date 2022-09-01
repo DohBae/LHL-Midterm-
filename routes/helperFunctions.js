@@ -22,4 +22,10 @@ const questionsTotal = function(object) {
   return count;
 };
 
-module.exports = { generateRandomNumber, correctAnswerTotal, questionsTotal };
+const showError = function(error) {
+  if (error === 'no-title') {
+    $('#empty-title-msg').show();
+  }
+}
+
+module.exports = { generateRandomNumber, correctAnswerTotal, questionsTotal, showError };
