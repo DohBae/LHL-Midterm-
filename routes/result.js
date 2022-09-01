@@ -23,4 +23,23 @@ router.get('/:id/', (req, res) => {
 
 });
 
+router.get('/myresults/', (req, res) => {
+  console.log("Posting all your results!");
+  let id = req.params.id;
+  let templateVars = {};
+  getAttemptById(id)
+    .then((val) => {
+      templateVars = {
+        correct_responses: val.correct_responses,
+        total_responses: val.total_responses,
+        quiz_title: val.title,
+        username: val.username
+      }
+    })
+      .then(() => {
+        res.render('attempt', templateVars);
+      })
+
+});
+
 module.exports = router;
