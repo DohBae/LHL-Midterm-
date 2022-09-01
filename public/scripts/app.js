@@ -67,13 +67,4 @@ $(document).ready(function () {
     alert("The URL for this quiz has been copied to your clipboard!");
   });
 
-  // $('#homepageShareButton').on("click", function() {
-  //   let inputc = document.body.appendChild(document.createElement("input"));
-  //   inputc.value = 'http://localhost:8080/take-a-quiz/';
-  //   inputc.focus();
-  //   inputc.select();
-  //   document.execCommand('copy');
-  //   inputc.parentNode.removeChild(inputc);
-  //   alert("The URL for this quiz has been copied to your clipboard!");
-  // });
 });
