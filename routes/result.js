@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
-const { getAttemptById } = require('../db/queries/attempt');
+const { getAttemptById, getAllAttemptsById } = require('../db/queries/attempt');
 
 router.get('/:id/', (req, res) => {
   console.log("Posting results!");
@@ -19,6 +19,24 @@ router.get('/:id/', (req, res) => {
     })
       .then(() => {
         res.render('attempt', templateVars);
+      })
+
+});
+
+router.get('/', (req, res) => {
+  console.log("Posting all your results!");
+  let id = 1;
+  let templateVars = {};
+  getAllAttemptsById(id)
+    .then((val) => {
+
+      templateVars = {
+        results: val
+      }
+
+    })
+      .then(() => {
+        res.render('myresults', templateVars);
       })
 
 });
