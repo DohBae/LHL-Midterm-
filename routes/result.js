@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
-const { getAttemptById } = require('../db/queries/attempt');
+const { getAttemptById, getAllAttemptsById } = require('../db/queries/attempt');
 
 router.get('/:id/', (req, res) => {
   console.log("Posting results!");
@@ -23,21 +23,20 @@ router.get('/:id/', (req, res) => {
 
 });
 
-router.get('/myresults/', (req, res) => {
+router.get('/', (req, res) => {
   console.log("Posting all your results!");
-  let id = req.params.id;
+  let id = 1;
   let templateVars = {};
-  getAttemptById(id)
+  getAllAttemptsById(id)
     .then((val) => {
+
       templateVars = {
-        correct_responses: val.correct_responses,
-        total_responses: val.total_responses,
-        quiz_title: val.title,
-        username: val.username
+        results: val
       }
+
     })
       .then(() => {
-        res.render('attempt', templateVars);
+        res.render('myresults', templateVars);
       })
 
 });

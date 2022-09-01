@@ -40,31 +40,27 @@
 
 <body>
   <div class="main_content" id="main_content" role="main">
-
-    <div class="createNewQuiz">
-      <button type="button" class="btn btn-lg btn-outline-primary"><a href="/create">Create A New Quiz!</a><i
-          class="fa-solid fa-pen-fancy"></i></button>
-    </div>
-
-    <% for (let quiz of quizzes) {%>
+    <h1 class="card-title">
+      <%= results[0].username %>'s Results!
+    </h1>
+    <% for (let result of results) {%>
       <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">
-            <%= quiz.title %>
-          </h5>
+        <div class="card-body">
+          <img src="<%= result.thumbnail_url %>" />
+          <h3>
+            <%= result.title %>
+          </h3>
+          <p class="card-text">Your score: <br>
+            <%= result.correct_responses %> / <%= result.total_responses %>
+          </p>
+          <a href='/take-a-quiz/<%= result.quiz_id %>''>
+            <button class="btn btn-primary" >Take This Quiz Again</button>
           </a>
         </div>
-        <div class="card-body">
-          <img class="card-img" src=<%=quiz.thumbnail_url %>>
-          <p class="card-text">
-            Quiz description: <br>
-            <%= quiz.description %>
-          </p>
-          <a href="..." class="btn btn-primary"><i class="fa-solid fa-share"></i>Share Quiz</a>
-        </div>
-        <% } %>
       </div>
-      <!--End of class=card-->
+      <% } %>
+  </div>
+  <!--End of class=card-->
   </div>
   <!--End of main content-->
 

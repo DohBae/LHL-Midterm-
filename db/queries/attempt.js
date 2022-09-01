@@ -32,4 +32,22 @@ const addNewAttempt = (user_id, quiz_id, correct_responses, total_responses) => 
   });
 };
 
-module.exports = { getAttemptById, addNewAttempt }
+const getAllAttemptsById = (id) => {
+  return db
+  .query(`
+  SELECT * FROM attempt
+  JOIN quiz ON attempt.quiz_id = quiz.id
+  JOIN users ON attempt.user_id = users.id
+  WHERE users.id = $1;
+    `, [id])
+  .then((result) => {
+    console.log('Retrieving my results page');
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+};
+
+module.exports = { getAttemptById, addNewAttempt, getAllAttemptsById }
+
