@@ -33,13 +33,11 @@
 <body>
   <div id="main_content" role="main">
     <% for (let each of quizDatabase) { %>
-      <div class="card">
-        <a href="http://localhost:8080/take-a-quiz/<%=each.id %>">
+      <div class="card" onclick="location.href='http://localhost:8080/take-a-quiz/<%=each.id %>'">
         <div class="card-header">
           <h5 class="card-title">
             <%= each.title %>
           </h5>
-        </a>
         </div>
         <div class="card-body">
           <img class="card-img" src=<%=each.thumbnail_url %>>
