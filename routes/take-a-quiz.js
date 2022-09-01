@@ -38,7 +38,7 @@ router.get('/:id/', (req, res) => {
 
 router.post('/:id/', (req, res) => {
   console.log('REQ: ', req.body);
-  const user_id = req.session.user_id;
+  const user_id = req.session.user_id ? req.session.user_id : 1;
   const quiz_id = req.params.id;
   const correct_responses = correctAnswerTotal(req.body);
   const total_responses = questionsTotal(req.body);
@@ -46,7 +46,6 @@ router.post('/:id/', (req, res) => {
   addNewAttempt(user_id, quiz_id, correct_responses, total_responses)
     .then((attempt) => {
       const attemptID = attempt.id;
-
       res.cookie('quiz-result', {correct_responses, total_responses, user_id})
 
       res.redirect(`/result/${attemptID}`);

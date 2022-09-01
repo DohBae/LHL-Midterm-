@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  const user_id = req.session.user_id;
   // setting all errors to false
   let templateVars = {
     emptyTitle: false,
