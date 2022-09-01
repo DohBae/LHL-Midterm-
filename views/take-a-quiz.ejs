@@ -39,10 +39,10 @@
     <p class="description">
       <%= description %>
     </p>
-    <% if (!Array.isArray(questions)) { %>
+    <% for (let question of questions) { %>
       <div class="question">
         <p>
-          <%= questions.content %>
+          <%= question.content %>
         </p>
         <% for (let answer of answers) { %>
           <% if (answer.question_id===question.id) { %>
@@ -56,31 +56,12 @@
             <% } %>
               <% } %>
       </div>
-      <% } else { %>
-        <% for (let question of questions) { %>
-          <div class="question">
-            <p>
-              <%= question.content %>
-            </p>
-            <% for (let answer of answers) { %>
-              <% if (answer.question_id===question.id) { %>
-                <div class="radio">
-                  <input type="radio" class="answer" name="answer_<%= answer.question_id %>"
-                    value="<%= answer.correct %>" />
-                  <label for="<%= answer.content %>">
-                    <%= answer.content %>
-                  </label><br>
-                </div>
-                <% } %>
-                  <% } %>
-          </div>
-          <% } %>
-            <% } %>
-              <!--End of Q1-->
+      <% } %>
+        <!--End of Q1-->
 
-              <div class="buttonHolder">
-                <button type="submit" class="button">Submit Quiz! <i class="fa-regular fa-hand-pointer"></i></button>
-              </div>
+        <div class="buttonHolder">
+          <button type="submit" class="button">Submit Quiz! <i class="fa-regular fa-hand-pointer"></i></button>
+        </div>
   </form>
 
 
