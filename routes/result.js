@@ -9,7 +9,6 @@ router.get('/:id/', (req, res) => {
   let templateVars = {};
   getAttemptById(id)
     .then((val) => {
-      console.log('get attempt by id: ', val);
       templateVars = {
         correct_responses: val.correct_responses,
         total_responses: val.total_responses,
@@ -20,7 +19,6 @@ router.get('/:id/', (req, res) => {
       .then(() => {
         res.render('attempt', templateVars);
       })
-
 });
 
 router.get('/', (req, res) => {
@@ -29,16 +27,13 @@ router.get('/', (req, res) => {
   let templateVars = {};
   getAllAttemptsById(id)
     .then((val) => {
-
       templateVars = {
         results: val
       }
-
     })
       .then(() => {
         res.render('myresults', templateVars);
       })
-
 });
 
 module.exports = router;
