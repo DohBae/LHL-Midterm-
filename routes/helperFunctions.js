@@ -1,23 +1,23 @@
-const generateRandomNumber = function() {
+const generateRandomNumber = function () {
   let number = Math.floor(Math.random() * 9000000) + 1000000;
 
   return number;
 };
 
-const correctAnswerTotal = function(object) {
+const correctAnswerTotal = function (object) {
   let count = 0;
   for (key in object) {
     if (object[key] === 'true') {
-      count ++
+      count++
     }
   }
   return count;
 };
 
-const questionsTotal = function(object) {
+const questionsTotal = function (object) {
   let count = 0;
   for (key in object) {
-    count ++
+    count++
   }
   return count;
 };

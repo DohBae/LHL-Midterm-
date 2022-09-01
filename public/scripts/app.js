@@ -1,6 +1,6 @@
 
 // Client facing scripts here
-const parseCookie = str =>   str   .split(';')   .map(v => v.split('='))   .reduce((acc, v) => {     acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());     return acc;   }, {});
+const parseCookie = str => str.split(';').map(v => v.split('=')).reduce((acc, v) => { acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim()); return acc; }, {});
 
 $(document).ready(function () {
   let questionSection = `
@@ -36,11 +36,11 @@ $(document).ready(function () {
   </section>
   `;
 
-  $("#add-question-btn").on("click", function() {
+  $("#add-question-btn").on("click", function () {
     $(questionSection).insertBefore("#form-submit-btn");
   });
 
-  $('#share-result-btn').on("click", function() {
+  $('#share-result-btn').on("click", function () {
     let inputc = document.body.appendChild(document.createElement("input"));
     inputc.value = window.location.href;
     inputc.focus();
@@ -57,7 +57,7 @@ $(document).ready(function () {
     alert(`Correct responses: ${quizResults.correct_responses} Total responses: ${quizResults.total_responses} By user: ${username}`);
   });
 
-  $('#share-quiz-btn').on("click", function() {
+  $('#share-quiz-btn').on("click", function () {
     let inputc = document.body.appendChild(document.createElement("input"));
     inputc.value = 'http://localhost:8080/take-a-quiz/';
     inputc.focus();

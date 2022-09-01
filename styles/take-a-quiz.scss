@@ -17,8 +17,8 @@ body {
   align-items: center;
   // width: 100%;
   min-height: 100vh;
-background-color: $background-colour;
-background-image: $background-img
+  background-color: $background-colour;
+  background-image: $background-img
 }
 
 form {
@@ -61,7 +61,7 @@ form {
 }
 
 .radio {
-display: inline-block;
+  display: inline-block;
 }
 
 .button {

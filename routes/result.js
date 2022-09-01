@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const db = require('../db/connection');
 const { getAttemptById, getAllAttemptsById } = require('../db/queries/attempt');
 const { getUserById } = require('../db/queries/users')
@@ -10,7 +10,7 @@ router.get('/:id/', async (req, res) => {
   let templateVars = {};
   //const user = await getUserById(req.session.user_id);
 
-   getAttemptById(id)
+  getAttemptById(id)
     .then((val) => {
       templateVars = {
         correct_responses: val.correct_responses,
@@ -19,9 +19,9 @@ router.get('/:id/', async (req, res) => {
         username: val.username
       }
     })
-      .then(() => {
-        res.render('attempt', templateVars);
-      })
+    .then(() => {
+      res.render('attempt', templateVars);
+    })
 });
 
 router.get('/', (req, res) => {
@@ -34,9 +34,9 @@ router.get('/', (req, res) => {
         results: val
       }
     })
-      .then(() => {
-        res.render('myresults', templateVars);
-      })
+    .then(() => {
+      res.render('myresults', templateVars);
+    })
 });
 
 module.exports = router;

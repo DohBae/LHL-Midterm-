@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const db = require('../db/connection');
 const { getQuizInfo, getQuizQuestion, getQuizAnswer } = require('../db/queries/quizzes');
 const { addNewAttempt } = require('../db/queries/attempt');
@@ -29,7 +29,7 @@ router.get('/:id/', (req, res) => {
             .then((result) => {
               templateVars['answers'] = result;
             })
-             .then(() => {
+            .then(() => {
               res.render('take-a-quiz', templateVars);
             });
         })
@@ -46,7 +46,7 @@ router.post('/:id/', (req, res) => {
   addNewAttempt(user_id, quiz_id, correct_responses, total_responses)
     .then((attempt) => {
       const attemptID = attempt.id;
-      res.cookie('quiz-result', {correct_responses, total_responses, user_id})
+      res.cookie('quiz-result', { correct_responses, total_responses, user_id })
 
       res.redirect(`/result/${attemptID}`);
     })

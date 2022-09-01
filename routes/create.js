@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const db = require('../db/connection');
 const { addQuiz, addQuestion, addAnswer } = require('../db/queries/create');
 const { generateRandomNumber } = require('./helperFunctions');
@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 
   const correctValues = req.body['answer-val'];
 
-// because these functions return promises (found in db/queries/create), they have to be run async
+  // because these functions return promises (found in db/queries/create), they have to be run async
   addQuiz(quiz_id, creator_id, listed, quizTitle, quizDescription, imageURL)
     .then(() => {
       const questionArray = [];
