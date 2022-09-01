@@ -1,26 +1,36 @@
+$font: 'Comfortaa', cursive;
+$background-colour: #a187bb;
+$background-img: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+$text-colour: rgb(77, 80, 86);
+$button-colour: rgba(153, 42, 226, 0.85);
+$button-text-colour: white;
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: pink;
-
-  .question-creation {
-    margin-top: 2rem;
-  }
-
-  #add-question-btn {
-    margin-left: 30rem;
-    color: darkorchid
-  }
-
-  .emsg {
-    background-color: #faa9a9;
-    border-color: #410303;
-    border-style: dotted;
-    border-width: 3px;
-    color: #410303;
-    padding: 2px;
-  }
+  background: $background-colour;
+  background-image: $background-img;
+  font-family: $font;
+  color: $text-colour;
 }
+
+.question-creation {
+  margin-top: 2rem;
+}
+
+#add-question-btn {
+  margin-left: 30rem;
+  color: $button-text-colour;
+}
+
+// .emsg {
+//   background-color: #faa9a9;
+//   border-color: #410303;
+//   border-style: dotted;
+//   border-width: 3px;
+//   color: #410303;
+//   padding: 2px;
+// }
