@@ -52,7 +52,9 @@
         </h3>
         <p class="card-text">Your score: <%= correct_responses %> / <%= total_responses %>
         </p>
-        <button class="btn btn-primary" id="share-result-btn"><i class="fa-solid fa-share"></i>Share Result</button>
+        <button class="btn btn-primary" id="share-result-btn"
+        data-username="<%= username %>"
+        ><i class="fa-solid fa-share"></i>Share Result</button>
         <button class="btn btn-primary" id="share-quiz-btn"><i class="fa-solid fa-share"></i>Share Quiz</button>
       </div>
     </div>

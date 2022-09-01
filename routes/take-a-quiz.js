@@ -38,7 +38,7 @@ router.get('/:id/', (req, res) => {
 
 router.post('/:id/', (req, res) => {
   console.log('REQ: ', req.body);
-  const user_id = 1;
+  const user_id = req.session.user_id;
   const quiz_id = req.params.id;
   const correct_responses = correctAnswerTotal(req.body);
   const total_responses = questionsTotal(req.body);

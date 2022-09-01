@@ -6,6 +6,7 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const session = require('cookie-session');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -27,6 +28,10 @@ app.use(
 );
 app.use(express.static('public'));
 app.use(cookieParser());
+app.use(session({
+  name: 'session',
+  keys: ['user_id', 'string', 'quiz', 'app']
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -58,13 +63,13 @@ app.use('/register', registerRoutes);
 const { getAllPublicQuizzes } = require('./db/queries/quizzes');
 
 app.get('/', (req, res) => {
+  console.log('Login time: ', req.session.loginTime)
 
   getAllPublicQuizzes()
     .then((quizzes) => {
       let templateVars = { quizDatabase: quizzes }
       res.render('index', templateVars);
     })
-
 });
 
 app.listen(PORT, () => {

@@ -15,6 +15,8 @@ router.post('/', (req, res) => {
     .then((result) => {
       const user = result[0];
       if (user.password === password) {
+        req.session.loginTime = new Date();
+        req.session.user_id = user.id;
         res.redirect('/');
       } else {
         res.redirect('/login');
@@ -24,6 +26,9 @@ router.post('/', (req, res) => {
       console.error(error);
       res.redirect('/login');
     })
+
+
+
 });
 
 module.exports = router;

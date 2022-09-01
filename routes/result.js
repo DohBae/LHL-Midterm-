@@ -2,12 +2,15 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const { getAttemptById, getAllAttemptsById } = require('../db/queries/attempt');
+const { getUserById } = require('../db/queries/users')
 
-router.get('/:id/', (req, res) => {
+router.get('/:id/', async (req, res) => {
   console.log("Posting results!");
   let id = req.params.id;
   let templateVars = {};
-  getAttemptById(id)
+  //const user = await getUserById(req.session.user_id);
+
+   getAttemptById(id)
     .then((val) => {
       console.log('get attempt by id: ', val);
       templateVars = {

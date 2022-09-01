@@ -53,7 +53,8 @@ $(document).ready(function () {
     quizResults = quizResults.slice(2);
     quizResults = JSON.parse(quizResults);
     console.log(document.cookie, quizResults);
-    alert(`correct responses: ${quizResults.correct_responses} total responses: ${quizResults.total_responses} By user: ${quizResults.user_id}`);
+    let username = this.dataset.username;
+    alert(`Correct responses: ${quizResults.correct_responses} Total responses: ${quizResults.total_responses} By user: ${username}`);
   });
 
   $('#share-quiz-btn').on("click", function() {

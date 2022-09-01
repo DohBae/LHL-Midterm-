@@ -14,6 +14,13 @@ const getUserByEmail = (email) => {
     });
 };
 
+const getUserById = (id) => {
+  return db.query('SELECT * FROM users WHERE id = $1;', [id])
+    .then(data => {
+      return data.rows[0];
+    });
+};
+
 const addUser = (username, email, password) => {
   return db.query(`INSERT INTO users (username, email, password)
   VALUES ($1, $2, $3)
@@ -23,4 +30,4 @@ const addUser = (username, email, password) => {
     });
 };
 
-module.exports = { getUsers, getUserByEmail, addUser };
+module.exports = { getUsers, getUserByEmail, addUser, getUserById };
