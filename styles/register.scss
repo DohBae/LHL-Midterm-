@@ -3,7 +3,6 @@ $background-colour: #a187bb;
 $background-img: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
 $text-colour: rgb(77, 80, 86);
 $button-colour: rgba(153, 42, 226, 0.85);
-$button-text-colour: white;
 
 body {
   display: flex;
@@ -13,7 +12,10 @@ body {
   min-height: 100vh;
   background: $background-colour;
   background-image: $background-img;
-  font-family: $font;
+}
+
+#main_content {
+  font-family: "Comfortaa", cursive;
   color: $text-colour;
 }
 
@@ -21,16 +23,12 @@ body {
   margin-top: 2rem;
 }
 
-#add-question-btn {
-  margin-left: 30rem;
-  color: $button-text-colour;
+.btn-dark {
+  background-color: $button-colour;
+  border-color: $button-colour;
 }
 
-// .emsg {
-//   background-color: #faa9a9;
-//   border-color: #410303;
-//   border-style: dotted;
-//   border-width: 3px;
-//   color: #410303;
-//   padding: 2px;
-// }
+#add-question-btn {
+  margin-left: 30rem;
+  color: darkorchid;
+}

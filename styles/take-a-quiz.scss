@@ -2,9 +2,12 @@ $font: 'Comfortaa', cursive;
 $border: 1px solid rgb(77, 80, 86);
 $border-radius: 5px;
 $border-radius-q: 3px;
-$box-background: rgba(148, 168, 239, 0.48);
+$box-background: rgba(195, 72, 217, 0.48);
 $text-colour: rgb(51, 52, 55);
-$button: rgba(227, 203, 21, 0.854);
+$button-colour: rgba(153, 42, 226, 0.85);
+$background-colour: #a187bb;
+$background-img: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+$button-font-colour: white;
 
 
 body {
@@ -14,8 +17,8 @@ body {
   align-items: center;
   // width: 100%;
   min-height: 100vh;
-background-color: #126427c6;
-background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+background-color: $background-colour;
+background-image: $background-img
 }
 
 form {
@@ -64,8 +67,9 @@ display: inline-block;
 .button {
   display: flex;
   justify-content: center;
-  background: $button;
+  background: $button-colour;
   margin-top: 50px;
+  color: $button-font-colour
 }
 
 .button:hover {

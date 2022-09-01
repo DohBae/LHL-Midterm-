@@ -7,9 +7,31 @@ HOMEPAGE CSS
 $font-cards: 'Comfortaa', cursive;
 $card-header-colour: rgb(66, 68, 72);
 $card-text-colour: rgb(77, 80, 86);
-$card-header-background: rgb(125 182 218 / 48%);
-$card-body-background: rgb(125 182 218 / 48%);
+$card-header-background: rgba(195, 72, 217, 0.48);
+$card-body-background: rgba(195, 72, 217, 0.48);
 $card-border: 1px solid rgb(77, 80, 86);
+$card-border: 1px solid rgb(77, 80, 86);
+$button-colour: rgba(153, 42, 226, 0.85);
+$background-colour: #a187bb;
+$background-img: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width: 100%;
+  min-height: 100vh;
+background-color: $background-colour;
+background-image: $background-img
+}
+
+#main_content {
+  margin-top: 50px;
+  width: 90%;
+}
 
 body,
 html {
@@ -59,4 +81,6 @@ html {
 .btn {
   width: auto;
   height: fit-content;
+  background-color: $button-colour;
+  border-color: $button-colour;
 }

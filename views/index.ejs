@@ -17,13 +17,13 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/nav.css"/>
+  <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
 
 </head>
 <header>
@@ -32,23 +32,23 @@
 
 <body>
   <div id="main_content" role="main">
-    <% for (let each of quizDatabase) { %>
-      <div class="card" onclick="location.href='http://localhost:8080/take-a-quiz/<%=each.id %>'">
-        <div class="card-header">
-          <h5 class="card-title">
-            <%= each.title %>
-          </h5>
+    <% quizDatabase=quizDatabase.reverse() %>
+      <% for (let each of quizDatabase) { %>
+        <div class="card" onclick="location.href='http://localhost:8080/take-a-quiz/<%=each.id %>'">
+          <div class="card-header">
+            <h5 class="card-title">
+              <%= each.title %>
+            </h5>
+          </div>
+          <div class="card-body">
+            <img class="card-img" src=<%=each.thumbnail_url %>>
+            <p class="card-text">
+              Quiz description: <br>
+              <%= each.description %>
+            </p>
+            <button class="btn btn-primary" id="share-quiz-btn"><i class="fa-solid fa-share"></i>Take This Quiz</button>
+          </div>
         </div>
-        <div class="card-body">
-          <img class="card-img" src=<%=each.thumbnail_url %>>
-          <p class="card-text">
-            Quiz description: <br>
-            <%= each.description %>
-          </p>
-          <a href="http://localhost:8080/take-a-quiz/<%=each.id %>" class="btn btn-primary"><i
-              class="fa-solid fa-share"></i>Share Quiz</a>
-        </div>
-      </div>
       <% } %>
   </div>
   <!--End of main content-->

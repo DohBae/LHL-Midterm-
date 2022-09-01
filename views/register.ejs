@@ -10,10 +10,14 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 
   <!-- Internal CSS -->
-  <link rel="stylesheet" href="/styles/userpages.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/register.css" />
+
 
   <!-- External Javascript -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -39,7 +43,7 @@
     <%- include('partials/header') %>
   </header>
 
-  <main style="margin: 1em;">
+  <div id="main_content" role="main">
     <h3>Create an Account</h3>
     <form action="/register" method="POST">
       <label for="username">Your name:</label>
@@ -53,7 +57,7 @@
         style="width: 250px; margin-bottom: 10px;" />
       <button type="submit" class="btn btn-dark">Register</button>
     </form>
-  </main>
+  </div>
 
 </body>
 

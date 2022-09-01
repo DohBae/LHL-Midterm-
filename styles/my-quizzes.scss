@@ -1,3 +1,14 @@
+$font-cards: 'Comfortaa', cursive;
+$card-header-colour: rgb(66, 68, 72);
+$card-text-colour: rgb(77, 80, 86);
+$card-header-background: rgba(195, 72, 217, 0.48);
+$card-body-background: rgba(195, 72, 217, 0.48);
+$card-border: 1px solid rgb(77, 80, 86);
+$card-border: 1px solid rgb(77, 80, 86);
+$button-colour: rgba(153, 42, 226, 0.85);
+$background-colour: #a187bb;
+$background-img: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+
 body {
   display: flex;
   flex-direction: column;
@@ -5,8 +16,8 @@ body {
   align-items: center;
   // width: 100%;
   min-height: 100vh;
-  background-color: #a187bb;
-  background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+  background-color: $background-colour;
+  background-image: $background-img;
 }
 
 body,
@@ -14,13 +25,13 @@ html {
   margin: 0;
 }
 
-$font-cards: 'Comfortaa', cursive;
-$card-header-colour: rgb(66, 68, 72);
-$card-text-colour: rgb(77, 80, 86);
-$card-header-background: rgba(195, 72, 217, 0.48);
-$card-body-background: rgba(195, 72, 217, 0.48);
-$card-border: 1px solid rgb(77, 80, 86);
-$button-colour: rgba(153, 42, 226, 0.85);
+.card-title{
+  display: flex;
+  justify-content: center;
+  font-family: $font-cards;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
 
 .card {
   font: 100% $font-cards;

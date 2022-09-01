@@ -5,10 +5,22 @@ const { addQuiz, addQuestion, addAnswer } = require('../db/queries/create');
 const { generateRandomNumber } = require('./helperFunctions');
 
 router.get('/', (req, res) => {
-  res.render("make-quiz");
+  const templateVars = {
+    emptyTitle: false,
+    noQuestions: false,
+    insufficientAnswers: false
+  }
+  res.render("make-quiz", templateVars);
 });
 
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
+  // setting all errors to false
+  let templateVars = {
+    emptyTitle: false,
+    noQuestions: false,
+    insufficientAnswers: false
+  }
+
   // quiz variables
   let listed = true;
   if (req.body['public-private'] === 'Private') {
@@ -16,7 +28,13 @@ router.post('/new', (req, res) => {
   }
   const quiz_id = generateRandomNumber();
   const creator_id = 1;
+
+  if (!req.body.title) {
+    templateVars.emptyTitle = true;
+    return res.render("make-quiz", templateVars);
+  }
   const quizTitle = req.body.title;
+
   let quizDescription = `This quiz doesn't have a description`;
   if (req.body.description) {
     quizDescription = req.body.description;
@@ -28,11 +46,22 @@ router.post('/new', (req, res) => {
   }
 
   // question variables
+  if (!req.body['question-text']) {
+    templateVars.noQuestions = true;
+    return res.render("make-quiz", templateVars);
+  }
   const questions = req.body['question-text'];
-
 
   // answer variables
   const answers = req.body['answer'];
+
+  for (const each of answers) {
+    if (each === '') {
+      templateVars.insufficientAnswers = true;
+      return res.render("make-quiz", templateVars);
+    }
+  }
+
   const correctValues = req.body['answer-val'];
 
 // because these functions return promises (found in db/queries/create), they have to be run async
@@ -70,9 +99,11 @@ router.post('/new', (req, res) => {
         }
         startValue = startValue + 4;
         endValue = endValue + 4;
-      }
+      } // this just assigns for answers at a time to each question
 
-
+    })
+    .catch((error) => {
+      console.log(error);
     });
 
   res.redirect('/');
