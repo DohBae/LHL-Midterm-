@@ -50,7 +50,14 @@ router.post('/', (req, res) => {
     templateVars.noQuestions = true;
     return res.render("make-quiz", templateVars);
   }
-  const questions = req.body['question-text'];
+
+  let questions;
+
+  if (typeof req.body['question-text'] === 'string') {
+    questions = [req.body['question-text']];
+  } else {
+    questions = req.body['question-text'];
+  }
 
   // answer variables
   const answers = req.body['answer'];
