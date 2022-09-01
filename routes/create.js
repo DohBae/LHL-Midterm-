@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 const { addQuiz, addQuestion, addAnswer } = require('../db/queries/create');
-const { generateRandomNumber } = require('./helperFunctions');
+const { generateRandomNumber, showError } = require('./helperFunctions');
 
 router.get('/', (req, res) => {
   res.render("make-quiz");
@@ -16,7 +16,14 @@ router.post('/new', (req, res) => {
   }
   const quiz_id = generateRandomNumber();
   const creator_id = 1;
+
+  if (!req.body.title || req.body.title.length === 0 || req.body.title === '') {
+    showError('no-title');
+    return;
+  }
+
   const quizTitle = req.body.title;
+
   let quizDescription = `This quiz doesn't have a description`;
   if (req.body.description) {
     quizDescription = req.body.description;
@@ -29,7 +36,6 @@ router.post('/new', (req, res) => {
 
   // question variables
   const questions = req.body['question-text'];
-
 
   // answer variables
   const answers = req.body['answer'];
@@ -73,6 +79,9 @@ router.post('/new', (req, res) => {
       }
 
 
+    })
+    .catch((error) => {
+      console.log(error);
     });
 
   res.redirect('/');
