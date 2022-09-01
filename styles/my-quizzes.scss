@@ -25,6 +25,14 @@ html {
   margin: 0;
 }
 
+.card-title{
+  display: flex;
+  justify-content: center;
+  font-family: $font-cards;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
 .card {
   font: 100% $font-cards;
   margin-top: 5px;

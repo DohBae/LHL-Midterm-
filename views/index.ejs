@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
 
 </head>
 <header>
@@ -46,22 +46,10 @@
               Quiz description: <br>
               <%= each.description %>
             </p>
-            <a href="http://localhost:8080/take-a-quiz/<%=each.id %>" class="btn btn-primary"><i
-                class="fa-solid fa-share"></i>Share Quiz</a>
+            <button class="btn btn-primary" id="share-quiz-btn"><i class="fa-solid fa-share"></i>Take This Quiz</button>
           </div>
         </div>
-        <div class="card-body">
-          <img class="card-img" src=<%=each.thumbnail_url %>>
-          <p class="card-text">
-            Quiz description: <br>
-            <%= each.description %>
-          </p>
-          <a href="http://localhost:8080/take-a-quiz/<%=each.id %>" id="share-quiz-btn" class="btn btn-primary"><i
-              class="fa-solid fa-share"></i>Share Quiz</a>
-        </div>
-      </div>
       <% } %>
-        <% } %>
   </div>
   <!--End of main content-->
 
