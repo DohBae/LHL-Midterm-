@@ -12,6 +12,7 @@ Welcome to F.A.A.Q. U., a browser-based app that lets you create an account, cre
 ## Dependencies
 - Body Parser
 - Bootstrap
+- Cookie Session
 - Cookie Parser
 - Dotenv
 - EJS 
