@@ -57,6 +57,9 @@ Currently, the results calculation does not include unanswered questions in the 
 ### No Max or Min Correct Answers
 Currently, taking a quiz only lets you select one response per question. BUT, there is no requirement for how many of the responses must be labelled as correct in the database. So, it is possible for a question to have all four answers labelled as correct (easy quiz! yay!). It is thus also possible that a question could arise with no correct answers at all (impossible quiz! ^*&%#@!). 
 
+### Login Clarity
+Right now, graphically, it's not clear whether you're logged in or not. That could be clearer in future implementation. 
+
 ## Future Development
 
 ### Detailed Results
