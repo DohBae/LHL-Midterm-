@@ -44,7 +44,7 @@
 
   <main class="create-quiz" style="margin: 1em;">
     <h3>Create a Quiz!</h3>
-    <form action="/create/new" method="POST">
+    <form action="/create/" method="POST">
       <label for="title">TITLE:</label>
       <input type="title" name="title" style="width: 25rem; margin-bottom: 10px;"> </input>
       <select name="public-private">
@@ -52,16 +52,27 @@
         <option value="Private">Private (Unlisted)</option>
       </select>
       <br>
+      <% if (emptyTitle) { %>
+        <div class="emsg" id="empty-title-msg">
+          Error: Cannot submit a quiz without a title!
+        </div>
+        <% } %>
+          <label for="description">DESCRIPTION:</label> <br>
+          <textarea type="description" name="description" style="width: 37.5rem; margin-bottom: 10px;"></textarea> <br>
+          <label for="img-url">IMAGE URL:</label>
+          <input type="img-url" name="img-url" style="width: 25rem; margin-bottom: 10px;"> </input> <br>
 
-      <div class="emsg" id="empty-title-msg">
-        Error: Cannot submit a quiz without a title!
-      </div>
-      <label for="description">DESCRIPTION:</label> <br>
-      <textarea type="description" name="description" style="width: 37.5rem; margin-bottom: 10px;"></textarea> <br>
-      <label for="img-url">IMAGE URL:</label>
-      <input type="img-url" name="img-url" style="width: 25rem; margin-bottom: 10px;"> </input> <br>
-
-      <button type="submit" class="btn btn-dark" id="form-submit-btn">Submit</button>
+          <button type="submit" class="btn btn-dark" id="form-submit-btn">Submit</button>
+          <% if (noQuestions) { %>
+            <div class="emsg" id="no-questions-msg">
+              Error: Cannot submit a quiz without any questions!
+            </div>
+            <% } %>
+              <% if (insufficientAnswers) { %>
+                <div class="emsg" id="no-questions-msg">
+                  Error: You must include <b>four</b> responses for every question!
+                </div>
+                <% } %>
     </form>
     <button class="btn btn-light" id="add-question-btn">Add Question</button>
   </main>

@@ -49,7 +49,12 @@ The take-a-quiz page for each individual quiz--indicated by a randomly-generated
 For logged-in users only -- the nav bar will direct you to a customized My Quizzes page which compiles all quizzes created by the signed-in user. You can also visit the My Results page which compiles all the quizzes taken by the signed-in user, including repeated attempts at the same quiz. This way, logged-in users can track their progress. 
 
 ## Known Bugs
+
+### Skipping Questions
 Currently, the results calculation does not include unanswered questions in the total question calculation, so cheeky quiz-takes could just not answer any question they weren't sure about and while that wouldn't be included in their correct answers, rendering a potentially-incorrect answer inconsquential to the total. 
+
+### No Max or Min Correct Answers
+Currently, taking a quiz only lets you select one response per question. BUT, there is no requirement for how many of the responses must be labelled as correct in the database. So, it is possible for a question to have all four answers labelled as correct (easy quiz! yay!). It is thus also possible that a question could arise with no correct answers at all (impossible quiz! ^*&%#@!). 
 
 ## Future Development
 
