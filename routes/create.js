@@ -108,7 +108,7 @@ router.post('/', (req, res) => {
         }
         startValue = startValue + 4;
         endValue = endValue + 4;
-      } // this just assigns for answers at a time to each question
+      } // this just assigns four answers at a time to each question
 
     })
     .catch((error) => {
