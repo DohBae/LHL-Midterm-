@@ -60,6 +60,9 @@ Currently, taking a quiz only lets you select one response per question. BUT, th
 ### Login Clarity
 Right now, graphically, it's not clear whether you're logged in or not. That could be clearer in future implementation. 
 
+### Share Button
+Right now, the URL that is copied to the clipboard using the Share Quiz button doesn't copy the correct URL. But, the URL can still be copied and shared easily. 
+
 ## Future Development
 
 ### Detailed Results
