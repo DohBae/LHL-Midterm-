@@ -5,7 +5,7 @@ const getQuizzes = (creator_id) => {
   .query(`
   SELECT *
   FROM quiz
-  WHERE creator_id = $1
+  WHERE creator_id = $1;
   `, [creator_id])
   .then((result) => {
     return result.rows;

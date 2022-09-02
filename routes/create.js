@@ -28,7 +28,8 @@ router.post('/', (req, res) => {
     listed = false;
   }
   const quiz_id = generateRandomNumber();
-  const creator_id = 1;
+  const creator_id = req.session.user_id ? req.session.user_id : 1;
+
 
   if (!req.body.title) {
     templateVars.emptyTitle = true;
