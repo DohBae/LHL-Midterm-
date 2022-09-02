@@ -4,7 +4,8 @@ const db = require('../db/connection');
 const { getQuizzes } = require('../db/queries/my-quizzes')
 
 router.get('/', async (req, res) => {
-  const creatorQuizzes = await getQuizzes(4)
+  let id = req.session.user_id;
+  const creatorQuizzes = await getQuizzes(id)
   const templateVars = { quizzes: creatorQuizzes }
   res.render('my-quizzes', templateVars);
 });

@@ -26,7 +26,7 @@ router.get('/:id/', async (req, res) => {
 
 router.get('/', (req, res) => {
   console.log("Posting all your results!");
-  let id = 1;
+  let id = req.session.user_id;
   let templateVars = {};
   getAllAttemptsById(id)
     .then((val) => {
